@@ -1,0 +1,9 @@
+{
+  "courses": [
+    { "name": "Mathematics", "code": "MTH101", "slug": "mathematics" },
+    { "name": "Algorithms & Data Structures", "code": "CSC261", "slug": "algorithms-data-structures" },
+    { "name": "Applied Statistics", "code": "STA201", "slug": "applied-statistics" }
+  ]
+}
+
+

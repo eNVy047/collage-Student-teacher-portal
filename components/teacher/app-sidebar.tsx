@@ -26,7 +26,19 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-// This is sample data.
+import classesData from "@/app/t/(dashboard)/classes/data.json"
+import coursesData from "@/app/t/(dashboard)/courses/data.json"
+
+// Build dynamic items for Classes and Courses from respective data.json files
+const dynamicClassesItems = (classesData as { classes?: { name: string; slug?: string }[] }).classes?.map(
+  (c) => ({ title: c.name, url: `/t/classes${c.slug ? "/" + c.slug : ""}` })
+) ?? []
+
+const dynamicCoursesItems = (coursesData as { courses?: { name: string; slug?: string }[] }).courses?.map(
+  (c) => ({ title: c.name, url: `/t/courses${c.slug ? "/" + c.slug : ""}` })
+) ?? []
+
+// Sidebar data
 const data = {
   user: {
     name: "xoraxi",
@@ -63,24 +75,18 @@ const data = {
     },
     {
       title: "Classes",
-      url: "#",
+      url: "/t/classes",
       icon: Bot,
-      items: [
-        {
-          title: "Upcomming Classes",
-          url: "/t/classes",
-        },
+      items: dynamicClassesItems.length ? dynamicClassesItems : [
+        { title: "Classes Overview", url: "/t/classes" }
       ],
     },
     {
       title: "Courses",
-      url: "#",
+      url: "/t/courses",
       icon: Bot,
-      items: [
-        {
-          title: "Notes",
-          url: "/t/courses/notes",
-        },
+      items: dynamicCoursesItems.length ? dynamicCoursesItems : [
+        { title: "Courses Overview", url: "/t/courses" }
       ],
     },
     {
@@ -104,35 +110,35 @@ const data = {
     },
     {
       title: "Finances",
-      url: "/t/finances",
+      url: "/t/finances/payments",
       icon: BookOpen,
       items: [
         {
           title: "Payments",
-          url: "/s/finances",
+          url: "/t/finances/payments",
         },
         {
           title: "Limits",
-          url: "/s/finances/limits",
+          url: "/t/finances/limits",
         },
       ],
     },
     {
       title: "Settings",
-      url: "/s/settings",
+      url: "/t/settings",
       icon: Settings2,
       items: [
         {
           title: "General",
-          url: "/s/settings/general",
+          url: "/t/settings/general",
         },
         {
           title: "Team",
-          url: "/s/settings/team",
+          url: "/t/settings/team",
         },
         {
           title: "Help & Support",
-          url: "/s/settings/help-support",
+          url: "/t/settings/help-support",
         }
       ],
     },
