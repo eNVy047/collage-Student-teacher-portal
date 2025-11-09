@@ -24,14 +24,14 @@
 //   );
 // }
 
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-6">
-      
+     
         <Card className="rounded-2xl shadow-xl bg-white/80 backdrop-blur-md">
           <CardContent className="p-8 text-center space-y-6">
             <h1 className="text-3xl font-bold text-gray-800">Welcome!</h1>
@@ -49,13 +49,14 @@ export default function Home() {
               </Button>
 
               <Button asChild variant="secondary" className="w-full text-lg">
-                <a href="/auth">Admin Dashboard</a>
+                <a href="/auth">Auth</a>
               </Button>
             </div>
           </CardContent>
         </Card>
-      
+     
     </div>
   );
 }
 
+ 
